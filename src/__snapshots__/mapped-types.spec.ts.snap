@@ -61,6 +61,8 @@ exports[`DeepReadonly testType<DeepReadonly<DeepReadonly<NestedArrayProps>>>() (
 
 exports[`DeepReadonly testType<DeepReadonly<DeepReadonly<NestedProps>>>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ first: { second: { name: string; }; }; }>"`;
 
+exports[`DeepReadonly testType<DeepReadonly<DeepReadonly<NestedRecordProps>>>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ string: Record<string, { name: string; }>; numeric: Record<number, { name: string; }>; }>"`;
+
 exports[`DeepReadonly testType<DeepReadonly<NestedArrayProps>['first']>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ second: { name: string; }[]; }>"`;
 
 exports[`DeepReadonly testType<DeepReadonly<NestedArrayProps>['first']['second']>() (type) should match snapshot 1`] = `"_DeepReadonlyArray<{ name: string; }>"`;
@@ -76,6 +78,18 @@ exports[`DeepReadonly testType<DeepReadonly<NestedProps>['first']>() (type) shou
 exports[`DeepReadonly testType<DeepReadonly<NestedProps>['first']['second']>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ name: string; }>"`;
 
 exports[`DeepReadonly testType<DeepReadonly<NestedProps>['first']['second']['name']>() (type) should match snapshot 1`] = `"string"`;
+
+exports[`DeepReadonly testType<DeepReadonly<NestedRecordProps>['numeric']>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<Record<number, { name: string; }>>"`;
+
+exports[`DeepReadonly testType<DeepReadonly<NestedRecordProps>['numeric'][number]>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ name: string; }>"`;
+
+exports[`DeepReadonly testType<DeepReadonly<NestedRecordProps>['numeric'][number]['name']>() (type) should match snapshot 1`] = `"string"`;
+
+exports[`DeepReadonly testType<DeepReadonly<NestedRecordProps>['string']>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ [x: string]: any; }>"`;
+
+exports[`DeepReadonly testType<DeepReadonly<NestedRecordProps>['string'][string]>() (type) should match snapshot 1`] = `"_DeepReadonlyObject<{ name: string; }>"`;
+
+exports[`DeepReadonly testType<DeepReadonly<NestedRecordProps>['string'][string]['name']>() (type) should match snapshot 1`] = `"string"`;
 
 exports[`DeepReadonly testType<DeepReadonly<string | null | boolean | number | bigint | symbol>>() (type) should match snapshot 1`] = `"string | number | bigint | boolean | symbol | null"`;
 

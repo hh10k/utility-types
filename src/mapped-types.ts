@@ -398,7 +398,9 @@ export type DeepReadonly<T> = T extends ((...args: any[]) => any) | Primitive
   : T extends _DeepReadonlyArray<infer U>
   ? _DeepReadonlyArray<U>
   : T extends _DeepReadonlyObject<infer V>
-  ? _DeepReadonlyObject<V>
+  ? unknown extends V
+    ? _DeepReadonlyObject<T>
+    : _DeepReadonlyObject<V>
   : T;
 /** @private */
 // tslint:disable-next-line:class-name

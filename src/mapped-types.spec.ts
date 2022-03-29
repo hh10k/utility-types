@@ -327,6 +327,23 @@ type RequiredOptionalProps = {
   // @dts-jest:pass:snap
   testType<DeepReadonly<NestedArrayProps>['first']['second'][number]['name']>();
 
+  type NestedRecordProps = {
+    string: Record<string, { name: string }>;
+    numeric: Record<number, { name: string }>;
+  };
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<NestedRecordProps>['string']>();
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<NestedRecordProps>['string'][string]>();
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<NestedRecordProps>['string'][string]['name']>();
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<NestedRecordProps>['numeric']>();
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<NestedRecordProps>['numeric'][number]>();
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<NestedRecordProps>['numeric'][number]['name']>();
+
   type NestedFunctionProps = {
     first: {
       second: (value: number) => string;
@@ -343,6 +360,8 @@ type RequiredOptionalProps = {
   testType<DeepReadonly<DeepReadonly<NestedProps>>>();
   // @dts-jest:pass:snap
   testType<DeepReadonly<DeepReadonly<NestedArrayProps>>>();
+  // @dts-jest:pass:snap
+  testType<DeepReadonly<DeepReadonly<NestedRecordProps>>>();
 
   // @dts-jest:pass:snap
   testType<DeepReadonly<string | null | boolean | number | bigint | symbol>>();
